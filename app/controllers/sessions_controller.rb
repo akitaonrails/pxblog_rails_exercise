@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @user && @user.authenticate(session_params[:password])
         session[:current_user] = {id: @user.id, username: @user.username}
-        format.html { redirect_to posts_path, notice: 'Sign in successful!' }
+        format.html { redirect_to user_posts_path(@user), notice: 'Sign in successful!' }
       else
         format.html { redirect_to new_session_path, alert: 'Invalid username/password combination!' }
       end
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:current_user] = nil
     respond_to do |format|
-      format.html { redirect_to posts_path, notice: 'Signed out successfully!' }
+      format.html { redirect_to users_path, notice: 'Signed out successfully!' }
     end
   end
 

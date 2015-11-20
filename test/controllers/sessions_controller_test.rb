@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
   setup do
-    @user = users(:one)
+    @user = users(:user_one)
   end
 
   test "shows the login form" do
@@ -14,7 +14,7 @@ class SessionsControllerTest < ActionController::TestCase
     post :create, user: {username: @user.username, password: "password"}
     assert session[:current_user]
     assert flash[:notice] == "Sign in successful!"
-    assert_redirected_to posts_path
+    assert_redirected_to user_posts_path(@user)
   end
 
   test "does not create a session with a bad login" do
@@ -35,6 +35,6 @@ class SessionsControllerTest < ActionController::TestCase
     delete :destroy
     refute session[:current_user]
     assert flash[:notice] == "Signed out successfully!"
-    assert_redirected_to posts_path
+    assert_redirected_to users_path
   end
 end

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   setup do
-    @user = users(:one)
+    @user = users(:user_one)
     @valid_create_attr = {email: @user.email, password: "some content", password_confirmation: "some content", username: @user.username}
   end
 
