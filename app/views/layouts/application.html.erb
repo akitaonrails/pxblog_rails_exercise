@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PxblogRails</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<p>
+  <% if current_user %>
+    Logged in as <strong><%= current_user[:username] %></strong> |
+    <%= link_to "Log out", session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% else %>
+    <%= link_to "Log in", new_session_path %>
+  <% end %>
+</p>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <p id="<%= key %>"><%= value %></p>
+  <% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

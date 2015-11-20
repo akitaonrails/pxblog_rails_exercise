@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: johndoe
+  email: johndoe@hotmail.com
+  password_digest: "$2a$10$gCK7czmzatjorvDfCTszvu4HB/G0tzQz5BO1sQ7U8b/VnCus.yzJm"
+
+two:
+  username: janedoe
+  email: janedow@hotmail.com
+  password_digest: "$2a$10$gCK7czmzatjorvDfCTszvu4HB/G0tzQz5BO1sQ7U8b/VnCus.yzJm"
